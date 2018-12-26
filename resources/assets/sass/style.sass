@@ -1,0 +1,864 @@
+@import _slickStyles.sass
+@import _mixins.sass
+@import _sprites.sass
+@import _normalize.sass
+
+$header-height: 130px
+$font14: 14px
+$font15: 15px
+$font16: 16px
+$font18: get-rem(18)
+$font23: get-rem(23)
+$font24: get-rem(24)
+$font25: get-rem(25)
+$font30: get-rem(30)
+$font33: get-rem(33)
+$font35: get-rem(35)
+$font40: get-rem(40)
+$font50: get-rem(50)
+$font52: get-rem(52)
+$font54: get-rem(54)
+$font80: get-rem(80)
+$font90: get-rem(90)
+$font100: get-rem(100)
+$font120: get-rem(120)
+$font155: get-rem(155)
+$font200: get-rem(200)
+
+$reg-font-weight: 400
+$semibold-font-weight: 600
+$bold-font-weight: 700
+$font-size: 10px
+$line-height: 10px
+
+$font-family-heading: "DINCondensed", Arial, sans-serif
+$font-family-main: "Asap", Arial, sans-serif
+
+
+$color-contrast: #2d3d50
+
+$btn-color: #ffa500
+$marker-color: #00a7b7
+$copyright-color: #002e3f
+$social-colorHover: #00a7b7
+$social-color: #7996a0
+$date-color: #c7c7c7
+$breadCrumb-color: #9e9e9e
+$color-contrastLight: #f4f4f4
+$color-darkGrey: #d2d7da
+$color-white: #ffffff
+
+
+$header-color: #a12b2a
+$active-color: #a12b2a
+$header-menu: #bababa
+$color-black: #000
+$color-lightGray: #eeeeee
+
+
+
+$smallheading: 16px
+
+body
+  color: $color-black
+  font-weight: $reg-font-weight
+  font-size: $font-size
+  line-height: $line-height
+  font-family: $font-family-main
+  background: #FFF
+  //height: 100%
+  &.fixedBody
+    overflow: hidden
+
+/* FONTS
+/* ================================================ */
+
+@font-face
+  font-family: 'Asap'
+  src: url('../fonts/Asap/Asap-Bold.eot')
+  src: local('☺'), url('../fonts/Asap/Asap-Bold.woff') format('woff'), url('../fonts/Asap/Asap-Bold.ttf') format('truetype'), url('../fonts/Asap/Asap-Bold.svg') format('svg')
+  font-weight: 700
+  font-style: normal
+@font-face
+  font-family: 'Asap'
+  src: url('../fonts/Asap/Asap-Regular.eot')
+  src: local('☺'), url('../fonts/Asap/Asap-Regular.woff') format('woff'), url('../fonts/Asap/Asap-Regular.ttf') format('truetype'), url('../fonts/Asap/Asap-Regular.svg') format('svg')
+  font-weight: 400
+  font-style: normal
+@font-face
+  font-family: 'Asap'
+  src: url('../fonts/Asap/Asap-SemiBold.eot')
+  src: local('☺'), url('../fonts/Asap/Asap-SemiBold.woff') format('woff'), url('../fonts/Asap/Asap-SemiBold.ttf') format('truetype'), url('../fonts/Asap/Asap-SemiBold.svg') format('svg')
+  font-weight: 600
+  font-style: normal
+@font-face
+  font-family: 'DINCondensed'
+  src: url('../fonts/DINCondensed/DINCondensed-bold.eot')
+  src: local('☺'), url('../fonts/DINCondensed/DINCondensed-bold.woff') format('woff'), url('../fonts/DINCondensed/DINCondensed-bold.ttf') format('truetype'), url('../fonts/DINCondensed/DINCondensed-bold.svg') format('svg')
+  font-weight: 700
+  font-style: normal
+
+/* MAIN STYLES
+/* ================================================ */
+
+*::-webkit-scrollbar
+  width: 6px
+  outline: none
+
+*::-webkit-scrollbar-track
+  border-radius: 4px
+  border: 1px solid $color-darkGrey
+  outline: none
+
+*::-webkit-scrollbar-thumb
+  height: 22px
+  border-radius: 3px
+  background-color: $color-darkGrey
+  outline: none
+//outline: 1px solid slategrey
+*,
+*::before,
+*::after
+  outline: none
+  -webkit-box-sizing: border-box
+  -moz-box-sizing: border-box
+  box-sizing: border-box
+// n/3*4 - gzip
+// url encoder
+// aria label
+//svgo
+//site improve accessability tool
+//tabindex
+
+::-moz-placeholder
+  opacity: 1
+
+html
+  font-size: 16px
+
+input::placeholder
+  color: $color-black
+
+img
+  display: block
+  max-width: 100%
+  object-fit: contain
+  height: auto
+
+span
+  display: inline-block
+  color: $color-black
+  font-family: $font-family-main
+  font-size: $font23
+  font-weight: 400
+  transition: color 0.3s ease
+//line-height: 26px
+
+section
+  position: relative
+
+li
+  list-style: none !important
+
+/* text position */
+
+.text-left
+  text-align: left !important
+
+.text-center
+  text-align: center !important
+
+.text-right
+  text-align: right !important
+
+.text-bottom
+  margin-top: auto !important
+
+
+/* Icons
+	 ====================== */
+.ic
+  position: relative
+  display: inline-block
+  vertical-align: middle
+// background: $icons no-repeat
+
+#main-wrapper
+  display: flex
+  flex-direction: column
+  //height: 100%
+  padding: 0
+  min-width: 320px
+  position: relative
+  overflow: hidden
+  opacity: 1
+  min-height: 100%
+#content
+  flex: 1 0 auto
+
+/* hamburger ====================== */
+
+.hamburger
+  position: relative
+  display: none
+  margin-left: auto
+  margin-right: 15px
+  width: 60px
+  height: 130px
+  top: 0
+  z-index: 10
+  transition: height 0.3s linear
+.header__scrolled .hamburger
+  height: 80px
+
+.hamburger1,
+.hamburger2,
+.hamburger3
+  position: absolute
+  top: 50%
+  left: 0
+  transition: all 200ms ease-in-out
+  z-index: 10
+  width: 60px
+  height: 8px
+  border-radius: 5px
+  background-color: $active-color
+
+.hamburger:hover
+  .hamburger1,
+  .hamburger2,
+  .hamburger3
+    background: $active-color
+
+.convert:hover
+  .hamburger2
+    background: inherit
+
+.hamburger1
+  top: calc(50% - 16px)
+
+.hamburger3
+  top: calc(50% + 16px)
+
+/* animation hamburger line 1 and 3 convert to 45deg, middle line - color inerit */
+
+.convert
+  .hamburger1
+    top: 50%
+    transform: rotate(45deg)
+
+.convert
+  .hamburger2
+    background-color: transparent
+
+.convert
+  .hamburger3
+    top: 50%
+    transform: rotate(-45deg)
+
+/* hamburger end ====================== */
+/* submenu start ====================== */
+.sub-menu-parent
+  position: relative
+
+.sub-menu
+  visibility: hidden /* hides sub-menu */
+  opacity: 0
+  position: absolute
+  top: 100%
+  left: 0
+  width: 100%
+  transform: translateY(-2em)
+  z-index: -1
+  transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s
+
+
+.sub-menu-parent:focus .sub-menu,
+.sub-menu-parent:focus-within .sub-menu,
+.sub-menu-parent:hover .sub-menu
+  visibility: visible /* shows sub-menu */
+  opacity: 1
+  z-index: 1
+  transform: translateY(0%)
+  transition-delay: 0s, 0s, 0.3s /* this removes the transition delay so the menu will be visible while the other styles transition */
+
+/* submenu end ====================== */
+
+.desktopHidden
+  display: none
+.mobileHidden
+  display: block
+.internet_block
+  display: none
+#mainSVG
+  position: absolute
+  top: -100000px
+  left: -100000px
+header
+  display: flex
+  justify-content: center
+  align-items: center
+  height: $header-height
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05)
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  z-index: 999
+  background-color: $color-white
+  transition: height 0.3s linear
+header.header__scrolled
+  height: 80px
+.logo img
+  transform: scale(1)
+  transition: transform 0.3s linear
+
+.header__scrolled
+  .logo img
+    transform: scale(0.8)
+  .navigation__link
+    padding: 28px 3px
+
+
+.wrapper
+  $rig: get-vw(320px)
+  $lef: get-vw(320px)
+  padding: 0 #{$rig} 0 #{$lef}
+  position: relative
+  max-width: 1280px
+  width: 100%
+
+.mainColumn
+  width: 100%
+  margin: 0 50px
+  padding: 0 10px
+  display: flex
+  justify-content: space-between
+  align-items: center
+.headerWrap
+  height: 100%
+.menu_block
+  height: 100%
+  width: 100%
+  margin: 0 -22px
+
+.navigation
+  display: flex
+  flex-direction: row
+  align-items: center
+  justify-content: flex-end
+  height: 100%
+  width: 100%
+  &__item
+    height: 100%
+    display: flex
+    align-items: center
+    padding: 0 22px
+  &__link
+    padding: 52px 3px
+    position: relative
+    display: flex
+    justify-content: center
+    align-items: center
+    span
+      color: $header-menu
+      font-family: $font-family-main
+      font-size: $font18
+      font-weight: $reg-font-weight
+      line-height: $font24
+      text-transform: uppercase
+      transition: color 0.1s ease
+    &:hover,
+    &:focus,
+    &.active
+      span
+        color: $active-color
+      &:after
+        background-color: $active-color
+
+.navigation__link span:after
+      content: ''
+      position: absolute
+      bottom: 0
+      left: 0
+      height: 6px
+      width: 100%
+      background-color: $color-white
+      transition: background-color 0.2s ease
+
+.navigation__link.active span:after
+  background-color: $active-color
+
+.logo
+  max-width: 222px
+  max-height: 89px
+  z-index: 10
+  svg
+    width: 100%
+    height: auto
+
+.whiteShield
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background-color: $color-white
+  z-index: 999
+
+footer
+  width: 100%
+  display: flex
+  flex: 0 0 auto
+  flex-direction: column
+  box-shadow: 0 13px 100px 11px rgba(0, 0, 0, 0.2)
+  background-color: $color-white
+  z-index: 1
+
+.copyright
+  margin-top: 30px
+  text-align: center
+  height: 40px
+  background-color: $copyright-color
+  display: flex
+  align-items: center
+  justify-content: center
+  span
+    display: block
+    color: $color-white
+    opacity: 0.3
+    font-family: $font-family-main
+    font-size: $font16
+    font-weight: $reg-font-weight
+.flexRow
+  display: flex
+  justify-content: space-between
+.footerCol
+  h4
+    color: $color-black
+    font-family: $font-family-main
+    font-size: $font40
+    font-weight: $semibold-font-weight
+    line-height: $font54
+    margin-bottom: get-rem(60)
+.footerLogo
+  display: block
+  margin-bottom: get-rem(30)
+.footerLink,
+.footerLink span
+  display: block
+  color: $color-black
+  font-family: $font-family-main
+  font-size: $font30
+  font-weight: $reg-font-weight
+  line-height: $font54
+  transition: color 0.3s linear
+
+.footerLink:hover,
+.footerLink:focus
+    color: $active-color
+
+.downloadLink
+  text-decoration: underline
+#section__main
+  margin: 190px 50px 60px //headerHeight
+  position: relative
+  background-color: $color-black
+  color: $color-white
+  opacity: 1
+
+.bannerContent
+  padding: 50px
+  z-index: 2
+  position: relative
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  height: 100%
+.bannerContent
+  h2
+    margin-bottom: get-rem(130)
+    span
+      display: block
+      color: #ffffff
+      font-family: $font-family-heading
+      font-size: $font80
+      font-weight: 700
+      line-height: $font90
+      text-transform: uppercase
+      text-align: center
+  p
+    display: block
+    max-width: 1010px
+    text-align: center
+    color: #ffffff
+    font-family: $font-family-main
+    font-size: $font25
+    font-weight: 400
+    line-height: $font52
+    margin-bottom: get-rem(130)
+.backgroundImg
+  width: 100%
+  height: 100%
+  position: absolute
+  top: 0
+  left: 0
+  img
+    width: 100%
+    height: 100%
+    object-fit: cover
+    object-position: 50% 0%
+    position: absolute
+    top: 0
+    left: 0
+  .darkShadow
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background-color: $color-black
+    opacity: 0.2
+    z-index: 1
+
+.ctaBtn
+  border-radius: 40px
+  display: block
+  background-color: $color-white
+  width: 100%
+  max-width: 380px
+  padding: 30px
+  color: $active-color
+  font-family: $font-family-main
+  font-size: $font25
+  font-weight: $reg-font-weight
+  text-transform: uppercase
+  border: none
+  transition: background-color 0.3s ease
+  &:hover,
+  &:focus
+    background-color: $active-color
+    color: $color-white
+
+.mainHeading
+  color: $active-color
+  font-family: $font-family-heading
+  font-size: $font50
+  font-weight: $bold-font-weight
+  line-height: $font52
+  text-transform: uppercase
+  margin-bottom: $font50
+.mainSubheading
+  color: $color-black
+  font-family: $font-family-main
+  font-size: $font35
+  font-weight: $bold-font-weight
+  line-height: $font52
+  margin-bottom: $font50
+p
+  color: $color-black
+  font-family: $font-family-main
+  font-size: $font23
+  font-weight: $reg-font-weight
+  line-height: $font35
+  word-wrap: break-word
+.text-block p:first-child
+  margin-bottom: $font35
+.darkBlock
+  background-color: $color-lightGray
+.lightBlock
+  background-color: $color-white
+.mainWrap
+  padding: get-vw(200px) get-vw(200px)
+.contentPageWrap
+  padding: get-vw(80px) get-vw(200px) get-vw(300px)
+.flexRow
+  display: flex
+  flex-direction: row
+.flexCol
+  display: flex
+  flex-direction: column
+.rowWrap
+  margin: 0 get-vw(-35px)
+.col-33
+  width: calc(33.3% - 30px)
+  margin: 0 auto
+  padding: 0 get-rem(85)
+  position: relative
+  &:after
+    content: ''
+    position: absolute
+    top: 10%
+    right: 0
+    width: 3px
+    height: get-rem(228)
+    background-color: #a12b2a
+    opacity: 0.1
+  &:last-child
+    &:after
+      display: none
+.col-40
+  width: calc(40% - 70px)
+  margin: 0 auto
+.col-60
+  width: calc(60% - 70px)
+  margin: 0 auto
+.col-70
+  width: calc(70% - 30px)
+  margin: 0 auto
+.col-80
+  width: calc(80% - 30px)
+  margin: 0 auto
+.footerWrap
+  padding: get-vw(100px) get-vw(200px)
+.headingWrap
+  position: relative
+  display: flex
+  justify-content: center
+  margin-bottom: get-rem(55)
+  &:before
+    content: ''
+    position: absolute
+    top: 50%
+    left: 0
+    transform: translateY(-50%)
+    width: 100%
+    height: 8px
+    background-color: #a12b2a
+    opacity: 0.1
+  .headingBlock
+    position: relative
+    background-color: $color-white
+    padding: 0 50px
+    margin: 0 auto
+    z-index: 1
+  h1
+    color: $active-color
+    font-family: $font-family-heading
+    font-size: $font50
+    font-weight: $bold-font-weight
+    line-height: $font50
+    text-transform: uppercase
+.contentPage
+  .mainSubheading
+    margin-bottom: get-rem(65)
+  .text-block p
+    display: block
+    margin-bottom: get-rem(40)
+.contactFormWrap
+  box-shadow: 0 7px 26px 2px rgba(0, 0, 0, 0.1)
+  background-color: $color-white
+  padding: get-rem(85) get-rem(140)
+  margin-top: get-rem(50)
+.inputBlockWrap
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+  margin: get-rem(-50) get-rem(-35)
+.inputBlock
+  display: flex
+  flex-direction: column
+  padding: 0 get-rem(35)
+  width: 50%
+  margin: get-rem(50) 0
+  label
+    color: $color-black
+    font-family: $font-family-main
+    font-size: $font15
+    font-weight: $reg-font-weight
+    line-height: $font35
+    margin-bottom: get-rem(33)
+.contactForm
+  border: none
+  border-bottom: #a6a6a6 1px solid
+  padding-bottom: 6px
+  &::-webkit-input-placeholder
+    color: #d3d3d3
+  &:-moz-placeholder
+    color: #d3d3d3
+.legendCaption
+  display: block
+  opacity: 0.15
+  color: #ac4040
+  font-family: $font-family-main
+  font-size: 13px
+  font-weight: $reg-font-weight
+  line-height: $font35
+  margin: get-rem(50) 0 get-rem(80)
+/// old code
+.error
+  border-bottom: 1px solid red !important
+.submitFormBtn
+  border: none
+  box-shadow: 0 1px 15px 1px rgba(0, 0, 0, 0.15)
+  border-radius: 30px
+  background-color: $color-white
+  width: 100%
+  max-width: get-rem(250)
+  padding: 20px
+  color: $active-color
+  font-family: $font-family-main
+  font-size: 16px
+  font-weight: $reg-font-weight
+  text-transform: uppercase
+
+.popup
+  position: absolute
+  top: 2000000px
+  left: 0px
+.popup.active
+  position: fixed
+  top: 50%
+  left: 50%
+  height: 100px
+  width: 320px
+  transform: translate(-50%, -50%)
+  z-index: 999
+  .mailMsg
+    position: fixed
+    opacity: 1
+    color: $active-color
+    font-family: $font-family-main
+    font-size: 16px
+    line-height: 30px
+    font-weight: $reg-font-weight
+    text-align: center
+    padding: 30px
+    height: auto
+    background-color: $color-white
+    box-shadow: 0 1px 15px 1px rgba(0, 0, 0, 0.15)
+
+@media screen and (max-width: 1024px)
+  html
+    font-size: 14px
+  .hamburger
+    display: block
+  .mobileHidden
+    display: none
+  .desktopHidden
+    display: block
+  .menu_block
+    &:after
+      content: ''
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      z-index: 1
+      background-color: $color-white
+  .navigation
+    flex-direction: column
+    justify-content: center
+    position: absolute
+    overflow: hidden
+    transition: top 0.3s ease
+    left: 0
+    height: auto
+    width: 100%
+    background-color: $color-white
+    &__item
+      width: 100%
+      height: 100%
+    &.active
+      top: 80px !important
+    &__link
+      padding: 10px
+      width: 100%
+      height: 100%
+      text-align: center
+      &:after
+        display: none
+      &:hover,
+      &:focus,
+      &.active
+        background-color: $active-color
+        transition: color 0.2s ease, background-color 0.2s ease
+        span
+          color: $color-white
+  .flexRow
+    flex-wrap: wrap
+
+  .menu__item
+    width: calc(50% - 40px)
+  .flexRow
+    display: flex
+    flex-direction: column
+  .col-33
+    width: calc(100% - 70px)
+    margin: 0 auto
+    &:after
+      content: ''
+      position: absolute
+      top: auto
+      bottom: get-rem(-25)
+      right: 50%
+      transform: translateX(50%)
+      width: get-rem(228)
+      height: 3px
+      background-color: #a12b2a
+      opacity: 0.1
+  .col-33+.col-33
+    margin-top: get-rem(52)
+  .footerLink span
+    text-align: center
+  .footerLink
+    text-align: center
+  .col-40
+    width: calc(100% - 70px)
+    margin: 0 auto
+  .col-60
+    width: calc(100% - 70px)
+    margin: 0 auto
+  .col-70
+    width: calc(100% - 30px)
+    margin: 0 auto
+  .col-80
+    width: calc(100% - 30px)
+    margin: 0 auto
+  .captionToImage
+    order: 0
+  .imageBlock
+    order: 1
+    padding-top: $font50!important
+
+
+@media screen and (max-width: 768px)
+  html
+    font-size: 12px
+  header
+    height: 80px
+  .logo img
+    transform: scale(.8)
+  .hamburger
+    height: 80px
+  #section__main
+    margin: 80px 0px 0px
+  .col-33,
+  .col-40,
+  .col-60
+    width: calc(100% - 30px)
+    margin: 0 auto
+    padding: 0
+  .mainColumn
+    margin: 0 30px
+  .contentPageWrap
+    padding: get-rem(80) get-rem(0) get-rem(150)
+  .contactFormWrap
+    padding: get-rem(50)
+  .sendBtnCol
+    display: flex
+    justify-content: center
+
+@media screen and (max-width: 600px)
+  html
+    font-size: 12px
+  .mainColumn
+    margin: 0 15px
+  .inputBlock
+    width: 100%
+
+@media screen and (max-width: 450px)
+  html
+    font-size: 12px
